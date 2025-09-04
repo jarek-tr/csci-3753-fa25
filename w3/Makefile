@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -O2
-TARGET=copy_sim_easy
+TARGET=copy_sim
 
 all: $(TARGET)
 $(TARGET): copy_sim.c
