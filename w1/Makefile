@@ -1,28 +1,24 @@
-CC ?= gcc
-CFLAGS_DEBUG = -std=c17 -Wall -Wextra -pedantic -O0 -g
-CFLAGS_SAN   = -std=c17 -O1 -g -fno-omit-frame-pointer -fsanitize=address,undefined -fno-sanitize-recover=all
-CFLAGS_REL   = -std=c17 -O2 -DNDEBUG
-TARGET = demo
-SRC    = demo.c
+# Makefile for syscall_demo.c
+# Week 1 OS Recitation: User vs Kernel Mode
 
-.PHONY: all debug sanitize release clang-debug clang-sanitize clean
+# Compiler and flags
+CC     = gcc
+CFLAGS = -Wall -Wextra -O2
 
-all: debug sanitize release clang-debug clang-sanitize
+# Target program name
+TARGET = syscall_demo
 
-debug:
-	$(CC) $(CFLAGS_DEBUG) $(SRC) -o $(TARGET)_debug
+# Default target: build the program
+all: $(TARGET)
 
-sanitize:
-	$(CC) $(CFLAGS_SAN) $(SRC) -o $(TARGET)_asan
+# Build rule: compile syscall_demo.c into syscall_demo
+$(TARGET): syscall_demo.c
+	$(CC) $(CFLAGS) -o $(TARGET) syscall_demo.c
 
-release:
-	$(CC) $(CFLAGS_REL) $(SRC) -o $(TARGET)_release
+# Run the program
+run: $(TARGET)
+	./$(TARGET)
 
-clang-debug:
-	clang $(CFLAGS_DEBUG) $(SRC) -o $(TARGET)_clang_debug
-
-clang-sanitize:
-	clang $(CFLAGS_SAN) $(SRC) -o $(TARGET)_clang_asan
-
+# Clean up compiled files
 clean:
-	rm -f $(TARGET)_debug $(TARGET)_asan $(TARGET)_release $(TARGET)_clang_debug $(TARGET)_clang_asan
+	rm -f $(TARGET)
