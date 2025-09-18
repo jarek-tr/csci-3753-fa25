@@ -1,0 +1,26 @@
+REPORT
+argv_count=1
+argv[0]=./io_demo
+line_tokens=20
+token[0]=This
+token[1]=is
+token[2]=a
+token[3]=string,
+token[4]=I'm
+token[5]=not
+token[6]=sure
+token[7]=how
+token[8]=many
+token[9]=characters
+token[10]=it
+token[11]=has
+token[12]=but
+token[13]=I'm
+token[14]=sure
+token[15]=there
+token[16]=are
+token[17]=at
+token[18]=least
+token[19]=10.
+numeric_tokens=0
+---- END REPORT ----
