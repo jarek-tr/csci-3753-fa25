@@ -4,8 +4,8 @@ CFLAGS_COMMON = -pthread -Wall -Wextra
 CFLAGS_OPT = -O2
 CFLAGS_DEBUG = -O0 -g
 
-TARGET = thread_test
-SRC = thread_test.c
+TARGET = thread_recitation
+SRC = thread_recitation.c
 
 # Default values if not provided at make time
 THREADS ?= 8
